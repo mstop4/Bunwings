@@ -174,3 +174,4 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 0
     m_Flags: 0
+  moveSpeed: 15
