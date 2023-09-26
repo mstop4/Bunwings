@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,7 +25,11 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         Vector2 inputVector = movement.ReadValue<Vector2>();
-        Debug.Log("H: " + inputVector.x + "\nV: " + inputVector.y);
+        transform.localPosition = new Vector3(
+            transform.localPosition.x + inputVector.x,
+            transform.localPosition.y,
+            transform.localPosition.z
+        );
 
         // float horizontalThrow = Input.GetAxis("Horizontal");
         // float verticalThrow = Input.GetAxis("Vertical");
