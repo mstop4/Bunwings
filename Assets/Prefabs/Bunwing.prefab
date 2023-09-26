@@ -175,3 +175,5 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   moveSpeed: 15
+  xRange: 15
+  yRange: 10
