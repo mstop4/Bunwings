@@ -178,7 +178,7 @@ MonoBehaviour:
   xRange: 15
   yRange: 10
   positionPitchFactor: -2
-  inputPitchFactor: -30
+  inputPitchFactor: -20
   positionYawFactor: 2.5
   inputRollFactor: -30
   inputAccel: 0.1
