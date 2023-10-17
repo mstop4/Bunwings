@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] InputAction movement;
+    [SerializeField] InputAction firing;
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float xRange = 5f;
     [SerializeField] float yRange = 5f;
+    [SerializeField] GameObject[] lasers;
     [SerializeField] float positionPitchFactor = -2f;
     [SerializeField] float inputPitchFactor = -10f;
     [SerializeField] float positionYawFactor = -2f;
@@ -21,14 +24,18 @@ public class PlayerControls : MonoBehaviour
     Vector2 inputVector = Vector2.zero;
     Vector2 inputVelocity = Vector2.zero;
 
+    bool fireInput = false;
+
     void OnEnable()
     {
         movement.Enable();
+        firing.Enable();
     }
 
     void OnDisable()
     {
         movement.Disable();
+        firing.Disable();
     }
 
     // Update is called once per frame
@@ -36,6 +43,7 @@ public class PlayerControls : MonoBehaviour
     {
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
     }
 
     private void ProcessTranslation()
@@ -78,10 +86,6 @@ public class PlayerControls : MonoBehaviour
             newY,
             transform.localPosition.z
         );
-
-        // float horizontalThrow = Input.GetAxis("Horizontal");
-        // float verticalThrow = Input.GetAxis("Vertical");
-        // Debug.Log("H: " + horizontalThrow + "\nV: " + verticalThrow);
     }
 
     private void ProcessRotation()
@@ -90,5 +94,33 @@ public class PlayerControls : MonoBehaviour
         float yaw = transform.localPosition.x * positionYawFactor;
         float roll = inputVelocity.x * inputRollFactor;
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    private void ProcessFiring() {
+        if (firing.IsPressed())
+        {
+            ActivateLasers();
+        }
+
+        else
+        {
+            DeactivateLasers();
+        }
+    }
+
+    private void ActivateLasers()
+    {
+        foreach (GameObject laser in lasers)
+        {
+            laser.SetActive(true);
+        }
+    }
+
+    private void DeactivateLasers()
+    {
+        foreach (GameObject laser in lasers)
+        {
+            laser.SetActive(false);
+        }
     }
 }

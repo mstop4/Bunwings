@@ -309,9 +309,43 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 0
     m_Flags: 0
+  firing:
+    m_Name: Firing
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8eae627f-8bee-469e-b105-6a2436754bac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: aaeb134d-531f-4059-ab36-ecb63b61afd1
+      m_Path: <Keyboard>/z
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Firing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 2db96347-76c1-49ef-a3e5-050d3d8707f3
+      m_Path: <Keyboard>/quote
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Firing
+      m_Flags: 0
+    - m_Name: 
+      m_Id: b170e9e2-9443-4d05-897b-df449c9b0352
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Firing
+      m_Flags: 0
+    m_Flags: 0
   moveSpeed: 15
   xRange: 15
   yRange: 10
+  lasers: []
   positionPitchFactor: -2
   inputPitchFactor: -20
   positionYawFactor: 2.5
